@@ -1,0 +1,9 @@
+<launch>
+	<arg name="node1" value="0" />
+	<arg name="baud_rate" value="115200" />
+	<node pkg="rosserial_python" type="serial_node.py" name="MPU6050" >
+		<param name="port" value="/dev/ttyUSB$(arg node1)" />
+		<param name="baud" value="$(arg baud_rate)" />
+	</node> 
+	<node pkg="rqt_plot" type="rqt_plot" name="rqt_plot" output="screen" />
+</launch>
